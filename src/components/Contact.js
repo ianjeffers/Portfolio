@@ -19,7 +19,7 @@ function Contact() {
           <p className="contact-text">
             <FiLinkedin /> <a href="https://www.linkedin.com/in/ian-jeffers-847588193" target="_blank">in/ian-jeffers-847588193</a>
             <br/>
-            <FiMail /> <a href="mailto:IanJeffers99@gmail.com" target="_blank">IanJeffers99@gmail.com</a>
+            <FiMail /> <a href="mailto:IanJeffersEmailPlaceholder@gmail.com" target="_blank">IanJeffersEmailPlaceholder@gmail.com</a>
             <br/>
             <FiGithub /> <a href="https://github.com/ianjeffers" target="_blank" rel="noopener noreferrer">ianjeffers</a>
           </p>

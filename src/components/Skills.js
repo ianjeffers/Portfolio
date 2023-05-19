@@ -1,26 +1,60 @@
-// Skills.js
 import React, { useState } from 'react';
-import { useSpring, animated } from '@react-spring/web';
+import './Skills.css';
 
 function Skills() {
-  const [show, setShow] = useState(false);
-  const props = useSpring({
-    from: { opacity: 0 },
-    to: { opacity: show ? 1 : 0 },
-  });
+  const baseSkills = {
+    "Python": ["Django", "Flask", "Quart", "Tensorflow", "Keras", "Numpy", "Pandas"],
+    "Java": ["Mockito", "JUnit", "Spring"],
+    "JavaScript": ["React", "Node", "Express", "NextJS"],
+    "TypeScript": [],
+    "HTML/CSS": ["Bootstrap", "Tailwind"],
+    "SQL": [],
+    "Lua": [],
+    "Matlab": [],
+    "C++": [],
+    "Cloud": {
+      "AWS": ["S3", "SQS", "Lambda", "Cloudwatch", "DynamoDB"],
+      "Azure": [],
+      "Google Cloud": [],
+    },
+    "Databases": ["MongoDB", "Redis", "NoSQL", "PostgreSQL"],
+    "Others": ["ChatGPT Plugins", "Docker", "Kubernetes", "LaTeX", "Git", "Photoshop", "Unity", "Sagemaker"]
+  };
+
+  const [skillsSet, setSkillsSet] = useState(new Set(Object.keys(baseSkills)));
+  const [clickedSkills, setClickedSkills] = useState(new Set()); 
+
+  const handleSkillClick = (skill) => {
+    if (baseSkills[skill]) {
+      clickedSkills.add(skill);
+      setClickedSkills(new Set(clickedSkills));
+      
+      const subSkills = baseSkills[skill];
+      if (Array.isArray(subSkills)) {
+        subSkills.forEach(subSkill => skillsSet.add(subSkill));
+      } else {
+        Object.keys(subSkills).forEach(subSkill => skillsSet.add(subSkill));
+      }
+      setSkillsSet(new Set(skillsSet));
+    }
+  };
+
+  const hasChildren = (skill) => {
+    return Array.isArray(baseSkills[skill]) ? baseSkills[skill].length > 0 : false;
+  };
+
+  const skills = Array.from(skillsSet);
 
   return (
     <div name="skills">
-      <button onClick={() => setShow(!show)}>{show ? "Hide details" : "Skills"}</button>
-      {show && (
-        <animated.div style={props}>
-          <h2>Languages</h2>
-          <p>Python, Java, Kotlin, JavaScript, TypeScript, HTML/CSS, SQL, Lua, Matlab, C++</p>
-
-          <h2>Tools/Frameworks</h2>
-          <p>AWS, Azure, Tensorflow, Keras, PyTorch, Flask, Django, Quart, Bootstrap, Numpy, Pandas, Mockito, React, Express, Node, NextJS, LaTeX, Git, Bootstrap, Lambda, SQS, Sagemaker, Photoshop, Unity, S3, Cloudwatch, DynamoDB, MongoDB, Redis, PostgreSQL, ChatGPT Plugins, Docker, Kubernetes</p>
-        </animated.div>
-      )}
+      <h2>Skills</h2>
+      <div className="skills-grid">
+        {skills.map((skill, index) => (
+          <div key={index} className={"skill-box" + (hasChildren(skill) ? " has-children" : "") + (clickedSkills.has(skill) ? " clicked" : "")} onClick={() => handleSkillClick(skill)}>
+            <p>{skill}</p>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }

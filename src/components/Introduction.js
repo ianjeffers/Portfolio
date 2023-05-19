@@ -1,7 +1,6 @@
-// Introduction.js
 import React, { useState } from 'react';
 import { useSpring, animated } from '@react-spring/web';
-import About from './About'; // Importing the About component
+import About from './About';
 import './Introduction.css'; 
 
 function Introduction() {

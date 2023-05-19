@@ -1,6 +1,4 @@
-// Header.js
 import React from 'react';
-import styled from 'styled-components';
 import useScrollDirection from '../hooks/useScrollDirection'; 
 import { Link as ScrollLink, animateScroll as scroll } from "react-scroll";
 import '../App.css';

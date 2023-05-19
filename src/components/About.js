@@ -1,7 +1,6 @@
-// About.js
 import React, { useState } from 'react';
 import { useSpring, animated } from '@react-spring/web';
-import Contact from './Contact'; // Importing the Contact component
+import Contact from './Contact'; 
 import './About.css'; 
 
 function About() {

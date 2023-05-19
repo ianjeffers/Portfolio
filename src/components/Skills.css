@@ -1,0 +1,49 @@
+.skills-grid {
+  display: grid;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 20px 0;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-gap: 10px;
+}
+
+.skill-box {
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.skill-box:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+
+.skill-box.has-children {
+  cursor: pointer;
+}
+
+.skill-box.has-children:hover {
+  border-color: #61dafb;
+  border-style: solid;
+  border-width: 3px;
+}
+
+.skill-box.clicked {
+  transform: none; 
+  box-shadow: none;
+  border-width: 1px;
+}
+
+.skill-box.clicked:hover {
+  border-color: #ccc; 
+  cursor: default;
+}
+
+.skill-subbox {
+  margin-top: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
