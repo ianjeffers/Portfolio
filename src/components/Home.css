@@ -1,0 +1,20 @@
+.home-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; /* To align the text vertically */
+    height: 100vh;
+    background: linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%);
+    color: white;
+    text-align: center; /* Center the text horizontally */
+  }
+  
+  .home-title {
+    font-size: 3em;
+    margin-bottom: 1rem; /* Add some spacing between the title and the intro */
+  }
+  
+  .home-intro {
+    font-size: 1.5em;
+  }
+  

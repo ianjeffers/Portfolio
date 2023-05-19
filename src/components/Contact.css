@@ -1,0 +1,38 @@
+.contact-container {
+    padding: 50px;
+    color: #f0f0f0;
+}
+  
+.contact-title {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+  
+.contact-text {
+    font-size: 1.2em;
+    line-height: 1.6;
+}
+  
+.reveal-button {
+    background-color: #007BFF;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    margin-top: 20px;
+}
+  
+.reveal-button:hover {
+    background-color: #0056b3;
+}
+
+.contact-text a {
+    color: #f0f0f0;
+    text-decoration: none;
+}
+
+.contact-text a:visited {
+    color: #f0f0f0;
+}

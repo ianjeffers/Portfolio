@@ -1,40 +1,25 @@
+// Header.js
 import React from 'react';
 import styled from 'styled-components';
-import { Link as ScrollLink } from "react-scroll";
-
-const StyledHeader = styled.header`
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  padding: 1em;
-  display: flex;
-  justify-content: space-between;
-  background-color: rgba(0, 0, 0, 0.7);
-  color: #fff;
-  z-index: 1000;
-`;
-
-const StyledNav = styled.nav`
-  ul {
-    list-style: none;
-    display: flex;
-    gap: 1em;
-  }
-`;
+import useScrollDirection from '../hooks/useScrollDirection'; 
+import { Link as ScrollLink, animateScroll as scroll } from "react-scroll";
+import '../App.css';
 
 const Header = () => {
+  const scrollDir = useScrollDirection();
+
   return (
-    <StyledHeader>
-      <h1>Ian Jeffers</h1>
-      <StyledNav>
+    <nav style={{ top: scrollDir === 'up' ? '0' : '-60px' }}>
         <ul>
           <li><ScrollLink to="home" smooth={true} style={{ cursor: 'pointer' }}>Home</ScrollLink></li>
           <li><ScrollLink to="about" smooth={true} style={{ cursor: 'pointer' }}>About</ScrollLink></li>
-          {/* Add more navigation items as needed */}
+          <li><ScrollLink to="skills" smooth={true} style={{ cursor: 'pointer' }}>Skills</ScrollLink></li>
+          <li><ScrollLink to="experience" smooth={true} style={{ cursor: 'pointer' }}>Experience</ScrollLink></li>
+          <li><ScrollLink to="projects" smooth={true} style={{ cursor: 'pointer' }}>Projects</ScrollLink></li>
+          <li><ScrollLink to="education" smooth={true} style={{ cursor: 'pointer' }}>Education</ScrollLink></li>
+          <li><ScrollLink to="contact" smooth={true} style={{ cursor: 'pointer' }}>Contact</ScrollLink></li>
         </ul>
-      </StyledNav>
-    </StyledHeader>
+      </nav>
   );
 };
 
